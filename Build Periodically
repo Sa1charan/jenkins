@@ -1,0 +1,3 @@
+its similar to Poll scm 
+
+configure > unselect any other triggers > select Build periodically > set the cron schedule

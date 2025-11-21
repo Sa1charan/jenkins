@@ -1,1 +1,5 @@
 we learned webhooks
+
+now this is to check automatic builds in jenkins using webhooks in github 
+repo settings> webhooks> add webhooks> jenkins url + /github-webhook/> content type> application/json> add webhook
+now in jenkins > configure> triggers> GitHub hook trigger for GITScm polling 

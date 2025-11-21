@@ -1,2 +1,9 @@
 we started it!!
-now
+now let me clearly explain the process 
+after setup of jenkins 
+profile> account> timezone> Asia/Kolkata> apply/save
+now in git 
+timedatectl set-timezone Asia/Kolkata> sudo systenctl restart jenkins
+refresh jenkins page and login
+jenkins home> configure> triggers> poll scm > select the pattern 
+

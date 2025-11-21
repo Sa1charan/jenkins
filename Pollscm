@@ -5,5 +5,27 @@ profile> account> timezone> Asia/Kolkata> apply/save
 now in git 
 timedatectl set-timezone Asia/Kolkata> sudo systenctl restart jenkins
 refresh jenkins page and login
-jenkins home> configure> triggers> poll scm > select the pattern 
+jenkins home> configure> triggers> poll scm > select the pattern ( cron schedule)
 
+now im integrating jenkins with github sutomatically using poll scm
+the uses of poll scm is we can schedule the builds in jenkins by setting the time which are represented by 5 stars * * * * *
+the 1st *- minutes we can use it like */5 means every 5th minute or just a star is every minute it is applicable to every star in poll scm 
+
+2nd * means hour 
+3rd * means date
+4th * means month
+5th * means day of the week
+to be clear 
+sunday - 0
+mon - 1
+tue - 2
+wed - 3
+thur - 4
+fri - 5
+sat - 6
+
+for example i want to trigger a build at 01:45 pm on 23rd Novemeber which is sunday
+the cron schedule would be like this ""45 13 23 11 0""
+
+or i need to trigger a build for every 2 mins at 1pm on the same day
+the cron schedule would be like this "" */2 13 23 11 0 ""

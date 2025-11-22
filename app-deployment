@@ -1,0 +1,46 @@
+in this we learned how to deploy a java app using jenkins, maven and tomcat
+maven is a tool used to build and testing the code 
+tomcat is a tool user for deploying the code
+basically used in/for application server
+what we done is we forked the code from a repo and build it on jenkins its a java code
+befor building the code we need to add the maven tool in jenkins 
+
+jenkins> manage jenkins (settings) > tools> maven installations> add maven> name it> save it
+
+now make ur first build in the home> u will see a folder names target ( where source code is present)
+now we need a application ser for using tomcat to avoid the heavy load on the pipeline 
+launch new server with t3.micro is enough for this application & open the server using another putty/ console
+install tomcat in this new server,
+for that open "dicdn.appache.org" website and open tomcat folder and open tomcat version 9
+(we are using this version for running this application) and check the present version which is 9.0.112
+
+here is the script for this :
+
+yum install java-17-amazon-corretto -y
+wget https://dlcdn.apache.org/tomcat/tomcat-9/v9.0.112/bin/apache-tomcat-9.0.112.tar.gz
+tar -zxvf apache-tomcat-9.0.112.tar.gz
+sed -i '56  a\<role rolename="manager-gui"/>' apache-tomcat-9.0.112/conf/tomcat-users.xml
+sed -i '57  a\<role rolename="manager-script"/>' apache-tomcat-9.0.112/conf/tomcat-users.xml
+sed -i '58  a\<user username="tomcat" password="admin@123" roles="manager-gui, manager-script"/>' apache-tomcat-9.0.112/conf/tomcat-users.xml
+sed -i '59  a\</tomcat-users>' apache-tomcat-9.0.112/conf/tomcat-users.xml
+sed -i '56d' apache-tomcat-9.0.112/conf/tomcat-users.xml
+sed -i '21d' apache-tomcat-9.0.112/webapps/manager/META-INF/context.xml
+sed -i '22d'  apache-tomcat-9.0.112/webapps/manager/META-INF/context.xml
+sh apache-tomcat-9.0.112/bin/startup.sh
+
+now in new local server create a new file and use this command
+vim appserver.sh> insert mode> paste the above commands> save and quit> sh appserver.sh
+# here sh means shell script, we used sh to execute all the commands at a time.
+
+now paste the ip address of tomcat server in new tab followed by port number
+for example 3.226.76.130:8080> directs to tomcat dashboard> manger app> login using the crediantials mentions in the installation script
+username: tomcat > password: admin@123
+after login this is where our application runs
+to see our app here buid in jenkins after installing the tomcat plugin
+jenkins> manage jenkins> plugins> available plugins> search deploy to container> install
+home> our job> configure> post build action > deploy war/ear to container> give the war,ear file name "target*/.war" (when we need all the war files to be added)
+next context path > random server name( e-commerce)
+now containers> select tomcat 9.x remote> add crediantials> username> password> id- appserver> description> save
+add tomcat url> save
+build> check in tomcat dashboard e-commerce app will be visible> click on it boom app is deployed
+

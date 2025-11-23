@@ -11,3 +11,9 @@ uses: triggers a build in jenkins automatically depending on time and commit cha
    
 3. Build Periodically: its similar to poll scm but independent of commit changes it automatically triggers a builds in jenkins at a specifies time.
    
+**day2**
+today we learned how to deploy an app using jenkins, ,mavins and tomcat
+
+**day3**
+
+today we learned about storage of artifacts of an application server using nexus

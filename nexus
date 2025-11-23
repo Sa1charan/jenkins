@@ -29,7 +29,12 @@ ll> ./nexus start (Starting nexus) nexus will be started
  settings> create new repo> select maven2(hosted) to store our war files> name it > deploment policy >allow redeploy> create repo
 open repo> the repo url details will be update in our github one repo in POM.xml file> in line 36 paste the copied repo url from nexus>
 open jenkins > plugins > add nexus artifact uploader > configure> build steps> Nexus artifact uploader > Nexus Details > Nexus Version> nexus3 > nexus url > only ipaddress&portnumber> 
-next> GroupId> from POM.xml > Version > Repository >
+next> GroupId> from POM.xml > Version > Repository > Credentials > GroupId > Version > Repository ( nexus repo name {myrepo}) 
+> Artifacts > ArtifactId (from POM.xml) > Type (war) > File (target/myweb-8.7.3.war) > save
+in sonatype nexus > browse > 
+
+now deployment > tomcat
+
 
 
 

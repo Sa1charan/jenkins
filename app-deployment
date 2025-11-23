@@ -5,7 +5,8 @@ basically used in/for application server
 what we done is we forked the code from a repo and build it on jenkins its a java code
 befor building the code we need to add the maven tool in jenkins 
 
-jenkins> manage jenkins (settings) > tools> maven installations> add maven> name it> save it
+jenkins> manage jenkins (settings) > tools> maven installations> 
+configure> build steps> add maven> name it> goals> type "clean package" > save it
 
 now make ur first build in the home> u will see a folder names target ( where source code is present)
 now we need a application ser for using tomcat to avoid the heavy load on the pipeline 
@@ -33,7 +34,7 @@ vim appserver.sh> insert mode> paste the above commands> save and quit> sh appse
 # here sh means shell script, we used sh to execute all the commands at a time.
 
 now paste the ip address of tomcat server in new tab followed by port number
-for example 3.226.76.130:8080> directs to tomcat dashboard> manger app> login using the crediantials mentions in the installation script
+for example 3.226.76.130:8080> directs to tomcat dashboard> manager app> login using the crediantials mentions in the installation script
 username: tomcat > password: admin@123
 after login this is where our application runs
 to see our app here buid in jenkins after installing the tomcat plugin

@@ -1,0 +1,30 @@
+nexus is used to store the artifacts of the application,
+artifacts are noting but the versions of the application 
+why to store them?
+to rollback to previos version incase of an error or emergency
+
+nexus is used between test and deploy phase of the pipeline
+to be clear we integrate nexus plugin before beployment of the app
+in short after maven ---> nexus ---> tomcat
+
+its the same process of using jenkins upto adding maven
+
+then create a new server in AWS with the name of nexus
+
+1. instance: 2 cpus & 4 GB RAM & 20 GB EBS> add security group with port no: 8081
+
+2. java install> yum install java-17-amazon-corretto -y
+
+3. nexus download (sonatype nexus) > cd /opt > wget https://download.sonatype.com/nexus/3/nexus-3.86.2-01-linux-x86_64.tar.gz > ll
+
+4. untar (unzip) > tar -zxvf nexus-3.86.2-01-linux-x86_64.tar.gz> useradd nexus > ll 
+
+5. change the owners of those files (nexus) only 2 files> (chown -R nexus:nexus  nexus-3.86.2-01 sonatype-work)  > su - nexus>  cd /opt> ll> users and gropus of the both files will be nexus > cd nexus-3.86.2-01> ll> cd bin( we use this for services)
+ll> ./nexus start (Starting nexus) nexus will be started
+
+
+6. nexus user create > ip address/8081> first time login> username: admin > password cat given path> copy and paste the token in password from git> set new password : " nexus@123 "
+
+7. login as user and nexus start 
+ settings> create new repo> select maven2(hosted) to store our war files> name it > deploment policy >allow redeploy> create repo
+open repo> the url details will be update in our github repo in POM.xml file> 

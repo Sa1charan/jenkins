@@ -27,4 +27,10 @@ ll> ./nexus start (Starting nexus) nexus will be started
 
 7. login as user and nexus start 
  settings> create new repo> select maven2(hosted) to store our war files> name it > deploment policy >allow redeploy> create repo
-open repo> the url details will be update in our github repo in POM.xml file> 
+open repo> the repo url details will be update in our github one repo in POM.xml file> in line 36 paste the copied repo url from nexus>
+open jenkins > plugins > add nexus artifact uploader > configure> build steps> Nexus artifact uploader > Nexus Details > Nexus Version> nexus3 > nexus url > only ipaddress&portnumber> 
+next> GroupId> from POM.xml > Version > Repository >
+
+
+
+

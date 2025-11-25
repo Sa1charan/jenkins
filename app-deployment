@@ -12,7 +12,7 @@ now make ur first build in the home> u will see a folder names target ( where so
 now we need a application ser for using tomcat to avoid the heavy load on the pipeline 
 launch new server with t3.micro is enough for this application & open the server using another putty/ console
 install tomcat in this new server,
-for that open "dicdn.appache.org" website and open tomcat folder and open tomcat version 9
+for that open "dlcdn.appache.org" website and open tomcat folder and open tomcat version 9
 (we are using this version for running this application) and check the present version which is 9.0.112
 
 here is the script for this :
@@ -39,7 +39,7 @@ username: tomcat > password: admin@123
 after login this is where our application runs
 to see our app here buid in jenkins after installing the tomcat plugin
 jenkins> manage jenkins> plugins> available plugins> search deploy to container> install
-home> our job> configure> post build action > deploy war/ear to container> give the war,ear file name "target*/.war" (when we need all the war files to be added)
+home> our job> configure> post build action > deploy war/ear to container> give the war,ear file name "target/*.war" (when we need all the war files to be added)
 next context path > random server name( e-commerce)
 now containers> select tomcat 9.x remote> add crediantials> username> password> id- appserver> description> save
 add tomcat url> save

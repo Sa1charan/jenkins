@@ -29,3 +29,6 @@ the cron schedule would be like this ""45 13 23 11 0""
 
 or i need to trigger a build for every 2 mins at 1pm on the same day
 the cron schedule would be like this "" */2 13 23 11 0 ""
+
+Note here the link to crontab to experiment or check the correct cron schedule
+https://crontab.guru/
